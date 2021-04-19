@@ -1,8 +1,7 @@
 name: flutter_osk
 description: A package to show/hide virtual keyboard on windows 10.
 version: 0.0.1
-author: mr.poetra22@gmail.com
-homepage:
+homepage: https://github.com/ekasetiawans/flutter_osk
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

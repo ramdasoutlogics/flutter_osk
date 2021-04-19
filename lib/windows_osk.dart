@@ -4,7 +4,7 @@ import 'package:ffi/ffi.dart';
 import 'package:win32/win32.dart';
 
 final _user32 = DynamicLibrary.open('user32.dll');
-int _findWindowW(String nameClass, String parent) {
+int _findWindowW(String nameClass, String? parent) {
   final _func = _user32.lookupFunction<
       IntPtr Function(Pointer<Utf16> nameClass, Pointer<Utf16> windowName),
       int Function(

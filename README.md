@@ -1,14 +1,25 @@
 # flutter_osk
 
-A new Flutter package project.
+A package to show/hide virtual keyboard on Windows 10.
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+You have to enable touch keyboard on taskbar.
+- Right Click on the taskbar.
+- Enable "Show touch keyboard button".
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+
+## Usage
+
+```dart
+
+import 'package:flutter_osk/flutter_osk.dart';
+
+void main(){
+    // show keyboard
+    WindowsOSK.show();
+
+    // close keyboard
+    WindowsOSK.close();
+}
+```

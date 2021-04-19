@@ -22,18 +22,18 @@ int _postMessageA(int hWnd, int msg, int wParam, int lParam) {
 
 class WindowsOSK {
   static int _getTipBandPtr() {
-    final w = _findWindowW('Shell_TrayWnd', null);
-    if (w > 0) {
-      final tray = FindWindowEx(
-        w,
+    final shellTrayWnd = _findWindowW('Shell_TrayWnd', null);
+    if (shellTrayWnd > 0) {
+      final trayNotifWnd = FindWindowEx(
+        shellTrayWnd,
         0,
         Pointer<Utf16>.fromAddress('TrayNotifyWnd'.toNativeUtf16().address),
         Pointer<Utf16>.fromAddress(0),
       );
 
-      if (tray > 0) {
+      if (trayNotifWnd > 0) {
         final tipBand = FindWindowEx(
-          tray,
+          trayNotifWnd,
           0,
           Pointer<Utf16>.fromAddress('TIPBand'.toNativeUtf16().address),
           Pointer<Utf16>.fromAddress(0),
@@ -60,9 +60,9 @@ class WindowsOSK {
   }
 
   static void close() {
-    final w = _findWindowW('IPTip_Main_Window', null);
-    if (w > 0) {
-      final res = SendMessage(w, 0x0112, 0xF060, 0);
+    final tipMainWnd = _findWindowW('IPTip_Main_Window', null);
+    if (tipMainWnd > 0) {
+      final res = SendMessage(tipMainWnd, 0x0112, 0xF060, 0);
       print(res);
     }
   }
